@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+  labels:
+    app: ubuntu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: quay.io/jitesoft/debian:buster-slim
+        command: [ "sleep" ]
+        args: [ "infinity" ]
+        volumeMounts:
+        - mountPath: /mnt
+          name: storage
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: task-pv-claim
