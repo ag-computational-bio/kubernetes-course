@@ -1,6 +1,6 @@
-# Introduction to Kubernetes 2022
+# Introduction to Kubernetes 2023
 
-This is the overview page for the hands-on parts of the introduction to kubernetes course 2022.
+This is the overview page for the hands-on parts of the introduction to kubernetes course 2023.
 
 The full presentations can be found in the `presentations` folder.
 All used YAML definitions are in the `yamls` folder.
