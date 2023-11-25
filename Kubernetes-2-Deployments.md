@@ -1,5 +1,7 @@
 # Kubernetes 101 - Deployments
  
+[Deployment (official docs)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
 ### 1 - Basic deployment example
 
 Deployments are Kubernetes workloads for permanently running applications (e.g. Websites or Services). They are build on top of ReplicaSets and enable replication and rollout strategies.
@@ -30,7 +32,7 @@ spec:
         - containerPort: 80
 ```
 
-Note: The used container exposes an internal nginx webserver.
+Note: The used container exposes an internal nginx webserver / proxy.
 
 - Create the deployment
 - Inspect the created pods
@@ -39,7 +41,7 @@ Note: The used container exposes an internal nginx webserver.
 
 ### 2 - Deployment rollouts and scaling
 
-Because deployments are based on ReplicaSets they offer advanced rollout strategies when the underlying specification has changed.
+Because deployments are based on ReplicaSets they offer more advanced rollout strategies when the underlying specification has changed.
 This enables an application to always have a minimum availability and enables a change history and undo capabilities.
 
 The rollout status can be monitored with the `kubectl rollout status deployment/<name>` command.
@@ -53,10 +55,3 @@ A deployment can be restarted with `kubectl rollout restart deployment/<name>`.
 - Watch the rollout status and wait till it finishes
 - Inspect the rollout history
 - Undo your previous change
-
-
-
-
- 
- 
- 

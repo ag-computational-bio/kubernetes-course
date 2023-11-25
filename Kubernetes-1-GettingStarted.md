@@ -4,9 +4,9 @@
  
 The primary source for the Hands-On session is the [official kubernetes documentation](https://kubernetes.io/docs/home/). 
  
-For getting started first the commandline application `kubectl` must be installed. A detailed installation guideline can be found [here](https://kubernetes.io/docs/tasks/tools/). While not strictly necessary it is recommended to configure bash autocompletion.
+For getting started first the commandline application `kubectl` must be installed. A detailed installation guideline can be found [here](https://kubernetes.io/docs/tasks/tools/). While not strictly necessary it is recommended to configure bash/zsh/powershell autocompletion.
  
-Login to the Rancher WebUI [here](https://rancher.biokube.org) with your designated username and password and select the `denbi-course` cluster. Download the KubeConfig file and move it to the location `~/.kube/config`.
+Login to the Kubermatic WebUI [here](https://www.k8s.gi.denbi.de) with your LifeScience AAI login. Download the KubeConfig file and move it to the location `~/.kube/config`.
  
 Test the configuration by running: `kubectl get pods -n <namespace>`. 
 A working configuration is indicated by a message like this: `No resources found in <namespace> namespace.`
@@ -33,7 +33,7 @@ spec:
 - Use `kubectl logs <podname> -n <namespace>` to get the logs of the pod.
 - Login to the pod via an interactive session `kubectl exec -it <podname> -n <namespace> -- sh`
 
-Tip: You can change your context for a default namespace with `kubectl config set-context --current --namespace=<insert-namespace-name-here>`. If this is set to your specific namespace the `-n <namespace>` parameter can be omitted.
+Tip: You can update your default context for another namespace with `kubectl config set-context --current --namespace=<insert-namespace-name-here>`. If this is set to your specific namespace the `-n <namespace>` parameter can be omitted.
 
 ### 1 - (Excursus) Imperative use of kubectl
 
@@ -43,7 +43,7 @@ For example you can run the busybox image like this:
 
 `kubectl run busybox --image=busybox --command -- sh -c "echo Hello Kubernetes! && sleep 3600"`
 
-This is especially useful with the `--dry-run=client` and `-o=yaml` parameters, which allow you to create a basic YAML file via kubectl without referencing the documentation.
+This is especially useful with the `--dry-run=client` and `-o=yaml` parameters, which allows you to create a basic YAML template via kubectl without referencing the documentation.
 
 Example: 
 
@@ -57,6 +57,8 @@ This procedure can also be used to create an interactive pod session on the fly:
 For additional tips and tricks please visit the official kubernetes [kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 ### 2 - Jobs
+
+[Jobs (official docs)](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
 
 Jobs are kubernetes resources that manage pods intended to run to (successful) completion (like calculations or tasks). This is similar to regular batch processing engines like SLURM or SGE.
 
