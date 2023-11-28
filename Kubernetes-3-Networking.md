@@ -63,10 +63,13 @@ spec:
   - host: demo.clum.gi.denbi.de
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: nginx-service
-          servicePort: 80
+          service:
+            name: nginx-service
+            port:
+              number: 80
 ```
 
 This Ingress routes the publicly available subdomain `demo.clum.gi.denbi.de` to the nginx service / deployment.
@@ -91,7 +94,7 @@ spec:
   tls:
   - hosts:
     - demo.clum.gi.denbi.de
-    secretName: demo-course-secret-tls
+    secretName: demo-clum-secret-tls
   rules:
   - host: demo.clum.gi.denbi.de
     http:

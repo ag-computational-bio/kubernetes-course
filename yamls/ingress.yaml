@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: demo.course.biokube.org
+  - host: demo.clum.gi.denbi.de
     http:
       paths:
       - pathType: Prefix
