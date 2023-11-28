@@ -59,6 +59,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: demo.clum.gi.denbi.de
     http:
@@ -91,6 +92,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"    
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - demo.clum.gi.denbi.de

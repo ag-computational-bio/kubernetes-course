@@ -6,12 +6,13 @@ metadata:
     kubernetes.io/ingress.class: "nginx"    
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
-    - demo.course.biokube.org
+    - demo.clum.gi.denbi.de
     secretName: demo-course-secret-tls
   rules:
-  - host: demo.course.biokube.org
+  - host: demo.clum.gi.denbi.de
     http:
       paths:
       - path: /
