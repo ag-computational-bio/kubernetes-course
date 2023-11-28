@@ -12,7 +12,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: task-pv-claim
 spec:
-  storageClassName: longhorn
+  storageClassName: cinder-csi
   accessModes:
     - ReadWriteOnce
   resources:
